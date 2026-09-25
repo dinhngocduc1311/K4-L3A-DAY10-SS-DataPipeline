@@ -3,8 +3,8 @@
   "retrieval_hit_rate": 0.2,
   "mean_token_f1": 0.7328619528619529,
   "judge_accuracy": 0.8,
-  "mean_judge_score": 3.6,
-  "judge_mode": "heuristic_fallback",
+  "mean_judge_score": 3.8,
+  "judge_mode": "llm",
   "ragas": {
     "skipped": "Set RUN_RAGAS=1 to enable the slower Ragas pass."
   }
