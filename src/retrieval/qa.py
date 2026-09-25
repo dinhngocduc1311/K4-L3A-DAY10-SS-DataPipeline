@@ -30,21 +30,27 @@ def _extract_answer(question: str, top_result: SearchResult) -> str:
 
 
 def answer_question(question: str, settings: Settings, index: LocalEmbeddingIndex, top_k: int | None = None) -> AnswerResult:
-    title_match = re.search(r"'([^']+)'", question)
-    exact = index.lookup(title_match.group(1)) if title_match else None
+    exact_matches = [match for title in re.findall(r"'([^']+)'", question) if (match := index.lookup(title))]
     retrieved = index.search(question, top_k=top_k)
-    if exact:
-        exact_result = SearchResult(
-            paper_id=exact["paper_id"],
-            title=exact["title"],
+    exact_results = [
+        SearchResult(
+            paper_id=match["paper_id"],
+            title=match["title"],
             score=1.0,
-            content=exact["content"],
-            metadata=exact["metadata"],
+            content=match["content"],
+            metadata=match["metadata"],
         )
-        deduped = [exact_result] + [item for item in retrieved if item.paper_id != exact_result.paper_id]
-        retrieved = deduped[: (top_k or settings.top_k)]
+        for match in exact_matches
+    ]
+    if exact_results:
+        exact_ids = {item.paper_id for item in exact_results}
+        retrieved = (exact_results + [item for item in retrieved if item.paper_id not in exact_ids])[
+            : (top_k or settings.top_k)
+        ]
     if not retrieved:
         answer = "I don't know from the indexed corpus."
+    elif len(exact_results) > 1:
+        answer = " ".join(first_sentence(item.metadata["summary"]) for item in exact_results)
     else:
         answer = _extract_answer(question, retrieved[0])
     return AnswerResult(

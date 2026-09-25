@@ -1,58 +1,57 @@
-# Danh Sách Thành Viên & Báo Cáo Phân Công Nhóm
+# Danh Sách Thành Viên & Phân Công Nhóm
 
-- **Tên Nhóm:** `[Điền tên nhóm]`
-- **Mã Nhóm / Lớp:** `K4-L3-DAY10`
-- **Tên Repository Nộp Bài:** `K4-L3-DAY10-TenNhom-DataPipeline`
+- **Tên nhóm:** SS
+- **Mã nhóm / lớp:** K4-L3A-DAY10
+- **Repository:** K4-L3A-DAY10-SS-DataPipeline
 
----
+## Thành viên
 
-## # Thành viên
+| STT | Họ và tên | MSSV | Email | Vai trò |
+|---:|---|---|---|---|
+| 1 | Đinh Ngọc Đức | 2A202602935 | Chưa cung cấp | Nhóm trưởng; Data Foundation, Vector Index & Baseline |
+| 2 | Nguyễn Việt Thành | 2A202602924 | Chưa cung cấp | QA Agent, Observability, Corruption & Repair |
 
-| STT | Họ và tên | MSSV | Email | Vai trò & Phân công công việc | Báo cáo cá nhân |
-|---:|---|---|---|---|---|
-| 1 | | | | Trưởng nhóm / Pipeline Integrator (`core/`, `phase1.py`, `corruption_flow.py`) | `report/<MSSV1>_HoTen.md` |
-| 2 | | | | Data Foundation & Recovery (`crossref.py`, `cleaning.py`, raw data) | `report/<MSSV2>_HoTen.md` |
-| 3 | | | | RAG & Vector Index (`retrieval/index.py`, `embeddings.py`, ChromaDB) | `report/<MSSV3>_HoTen.md` |
-| 4 | | | | Observability & Evaluation (`quality.py` GX 1.x, `testset.py`, reporting) | `report/<MSSV4>_HoTen.md` |
+## Quy tắc chống conflict
 
-*(Nếu nhóm có 3 hoặc 5-6 thành viên, xem bảng phân công chi tiết theo vai trò trong file `CHECKPOINTS.md`)*.
+Hai thành viên chỉ sửa và commit các file thuộc phạm vi của mình. Mọi thay đổi contract dùng chung được thống nhất trước khi code; không cùng sửa một file trên hai nhánh.
 
----
+### Đinh Ngọc Đức — 2A202602935
 
-## # Cá nhân
+**Phạm vi code độc quyền:**
 
-### ## HoVaTen1-MSSV1
-- **Vai trò:** Trưởng nhóm & Điều phối Pipeline.
-- **Công việc chi tiết đã hoàn thành:**
-  - Thiết lập cấu hình hệ thống `core/config.py` và đường dẫn artifacts `core/utils.py`.
-  - Kết nối luồng thực thi trong `src/pipelines/phase1.py` và `src/pipelines/corruption_flow.py`.
-  - Kiểm tra tính nhất quán của các artifacts và theo dõi Contributor tracking trên GitHub nhánh `main`.
-- **Điều học được / Đóng góp chính:**
-  - Hiểu sâu sắc về thiết kế Idempotent Pipeline và quản lý trạng thái luồng dữ liệu đa tầng.
+- src/core/config.py, src/core/utils.py
+- src/ingestion/crossref.py, src/ingestion/cleaning.py
+- src/retrieval/embeddings.py, src/retrieval/index.py
+- src/evaluation/__init__.py, src/evaluation/testset.py, src/evaluation/metrics.py
+- src/pipelines/phase1.py, script/run_phase1.py
 
-### ## HoVaTen2-MSSV2
-- **Vai trò:** Phụ trách Ingestion, Làm sạch & Phục hồi dữ liệu.
-- **Công việc chi tiết đã hoàn thành:**
-  - Xây dựng module thu thập Crossref API với cơ chế Fallback offline trong `src/ingestion/crossref.py`.
-  - Chuẩn hóa schema, tính toán trường `age_days` và `text_for_embedding` trong `src/ingestion/cleaning.py`.
-  - Thực thi cơ chế Idempotent Repair phục hồi dữ liệu từ raw snapshot.
-- **Điều học được / Đóng góp chính:**
-  - Kỹ thuật truy vết nguồn gốc dữ liệu (Data Lineage) và bảo toàn raw snapshot trước khi biến đổi.
+**Deliverables:**
 
-### ## HoVaTen3-MSSV3
-- **Vai trò:** Phụ trách RAG, Vector Database & Embedding.
-- **Công việc chi tiết đã hoàn thành:**
-  - Quản lý mô hình embedding `sentence-transformers/all-MiniLM-L6-v2`.
-  - Nạp và quản lý 3 collection riêng biệt trong ChromaDB (`papers-baseline`, `papers-corrupted`, `papers-repaired`).
-  - Xây dựng QA Agent truy vấn ngữ cảnh chính xác theo tài liệu.
-- **Điều học được / Đóng góp chính:**
-  - Cách cô lập các không gian vector để so sánh khách quan giữa dữ liệu sạch và dữ liệu bị lỗi.
+- Cấu hình provider, model và toàn bộ đường dẫn artifact.
+- Ingestion Crossref có retry và offline fallback; chuẩn hóa raw records.
+- Làm sạch, tính age_days, khử trùng và tạo text_for_embedding.
+- MiniLM embeddings, ChromaDB idempotent, benchmark 10 câu và baseline metrics.
+- Điều phối baseline pipeline và kiểm chứng artifacts Pha 1.
 
-### ## HoVaTen4-MSSV4
-- **Vai trò:** Phụ trách Data Observability & Benchmark Evaluation.
-- **Công việc chi tiết đã hoàn thành:**
-  - Thiết lập Quality Gate theo chuẩn mới **Great Expectations 1.x** và giám sát Freshness SLA trong `src/observability/quality.py`.
-  - Xây dựng bộ câu hỏi đánh giá chuẩn trong `src/evaluation/testset.py`.
-  - Đo lường và xuất bảng đối chiếu 3 trạng thái vào `data/reports/corruption_report.md`.
-- **Điều học được / Đóng góp chính:**
-  - Cách thiết lập hệ thống cảnh báo sớm chặn đứng hiện tượng Silent Failure trước khi dữ liệu vào serving layer.
+### Nguyễn Việt Thành — 2A202602924
+
+**Phạm vi code độc quyền:**
+
+- src/ingestion/corruption.py
+- src/retrieval/__init__.py, src/retrieval/agent.py, src/retrieval/llm.py, src/retrieval/qa.py
+- src/observability/__init__.py, src/observability/quality.py, src/observability/reporting.py
+- src/pipelines/corruption_flow.py, script/run_corruption_flow.py
+
+**Deliverables:**
+
+- Multi-provider QA Agent và router OpenRouter/Gemini.
+- Quality Gate GX 1.x, Freshness SLA và báo cáo Markdown.
+- Sáu kịch bản corruption, nhật ký lỗi và đo suy giảm.
+- Repair từ raw source, kiểm tra khớp baseline và báo cáo ba trạng thái.
+
+## Contract tích hợp
+
+- Hai luồng dùng chung schema do PaperRecord và clean dataframe định nghĩa.
+- Evaluation dùng cố định data/eval/test_set.json cho cả ba trạng thái.
+- Đức bàn giao baseline artifacts trước; Thành chỉ chạy corruption flow sau khi baseline pass.
+- Mỗi thành viên tự commit các file thuộc danh sách của mình và phải xuất hiện trên GitHub main.

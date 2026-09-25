@@ -7,7 +7,6 @@ import sys
 import types
 from typing import Any
 
-from datasets import Dataset
 from pydantic import BaseModel, Field
 
 from core.config import Settings
@@ -74,6 +73,8 @@ def _run_ragas(settings: Settings, answers: list[dict[str, Any]]) -> dict[str, A
     if os.getenv("RUN_RAGAS", "").lower() not in {"1", "true", "yes"}:
         return {"skipped": "Set RUN_RAGAS=1 to enable the slower Ragas pass."}
     try:
+        from datasets import Dataset
+
         if "langchain_community.chat_models.vertexai" not in sys.modules:
             shim = types.ModuleType("langchain_community.chat_models.vertexai")
             shim.ChatVertexAI = type("ChatVertexAI", (), {})
@@ -113,7 +114,13 @@ def evaluate_pipeline(
     for item in test_set:
         result = answer_question(item["question"], settings=settings, index=index)
         judge = _judge_answer(settings, item["question"], item["ground_truth"], result.answer)
-        retrieval_hit = any(doc_id in item["ground_truth_doc_ids"] for doc_id in result.retrieved_doc_ids)
+        expected_ids = set(item["ground_truth_doc_ids"])
+        retrieved_ids = set(result.retrieved_doc_ids)
+        retrieval_hit = (
+            expected_ids <= retrieved_ids
+            if (item.get("question_type") or item["type"]) == "multi_hop"
+            else bool(expected_ids & retrieved_ids)
+        )
         answers.append(
             {
                 "id": item["id"],
@@ -130,12 +137,14 @@ def evaluate_pipeline(
             }
         )
 
+    fallback_judges = sum(item["judge"]["reasoning"].startswith("Fallback heuristic") for item in answers)
     summary = {
         "samples": len(answers),
         "retrieval_hit_rate": mean(1.0 if item["retrieval_hit"] else 0.0 for item in answers),
         "mean_token_f1": mean(item["token_f1"] for item in answers),
         "judge_accuracy": mean(1.0 if item["judge"]["correct"] else 0.0 for item in answers),
         "mean_judge_score": mean(item["judge"]["score"] for item in answers),
+        "judge_mode": "heuristic_fallback" if fallback_judges == len(answers) else "llm" if not fallback_judges else "mixed",
     }
     summary["ragas"] = _run_ragas(settings, answers)
 
