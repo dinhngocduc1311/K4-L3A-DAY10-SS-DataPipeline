@@ -6,6 +6,7 @@ from typing import Any
 
 import chromadb
 import pandas as pd
+from chromadb.errors import NotFoundError
 
 from core.config import Settings
 from core.utils import read_json, safe_slug, write_json
@@ -25,20 +26,23 @@ class LocalEmbeddingIndex:
     def __init__(
         self,
         settings: Settings,
-        collection_name: str,
-        documents: list[dict[str, Any]],
-        persist_path: Path,
+        collection_name: str | None = None,
+        documents: list[dict[str, Any]] | None = None,
+        persist_path: Path | None = None,
     ):
         self.settings = settings
-        self.collection_name = collection_name
-        self.documents = documents
-        self.persist_path = persist_path
+        self.collection_name = collection_name or settings.baseline_collection_name
+        self.documents = documents or []
+        self.persist_path = persist_path or settings.paths.chroma_dir
         self.embedding_backend = "chroma"
         self.embedding_model = MiniLMEmbeddings(settings.embedding_model)
-        self.client = chromadb.PersistentClient(path=str(persist_path))
-        self.collection = self.client.get_collection(name=collection_name)
-        self.documents_by_paper_id = {document["paper_id"].lower(): document for document in documents}
-        self.documents_by_title = {document["title"].lower(): document for document in documents}
+        self.client = chromadb.PersistentClient(path=str(self.persist_path))
+        try:
+            self.collection = self.client.get_collection(name=self.collection_name)
+        except NotFoundError:
+            self.collection = None
+        self.documents_by_paper_id = {document["paper_id"].lower(): document for document in self.documents}
+        self.documents_by_title = {document["title"].lower(): document for document in self.documents}
 
     @staticmethod
     def _build_documents(df: pd.DataFrame) -> list[dict[str, Any]]:
@@ -86,25 +90,26 @@ class LocalEmbeddingIndex:
         df: pd.DataFrame,
         settings: Settings,
         embeddings_output_path: Path | None = None,
+        collection_name: str | None = None,
     ) -> "LocalEmbeddingIndex":
-        collection_name = cls._derive_collection_name(settings, embeddings_output_path)
+        collection_name = collection_name or cls._derive_collection_name(settings, embeddings_output_path)
         documents = cls._build_documents(df)
         persist_path = settings.paths.chroma_dir
         persist_path.mkdir(parents=True, exist_ok=True)
 
         embedding_model = MiniLMEmbeddings(settings.embedding_model)
         client = chromadb.PersistentClient(path=str(persist_path))
-        try:
-            client.delete_collection(name=collection_name)
-        except Exception:
-            pass
-        collection = client.create_collection(
+        embeddings = embedding_model.embed_documents([document["content"] for document in documents])
+        collection = client.get_or_create_collection(
             name=collection_name,
             configuration={"hnsw": {"space": "cosine"}},
         )
-        embeddings = embedding_model.embed_documents([document["content"] for document in documents])
-        collection.add(
-            ids=[document["record_id"] for document in documents],
+        new_ids = [document["record_id"] for document in documents]
+        stale_ids = set(collection.get(include=[])["ids"]) - set(new_ids)
+        if stale_ids:
+            collection.delete(ids=list(stale_ids))
+        collection.upsert(
+            ids=new_ids,
             embeddings=embeddings,
             documents=[document["content"] for document in documents],
             metadatas=[document["metadata"] for document in documents],
@@ -128,6 +133,17 @@ class LocalEmbeddingIndex:
             persist_path=persist_path,
         )
 
+    def build_from_clean(self) -> "LocalEmbeddingIndex":
+        """Build this collection from the configured clean JSON artifact."""
+        built = type(self).build(
+            pd.read_json(self.settings.paths.clean_json),
+            self.settings,
+            self.settings.paths.embeddings_json,
+            self.collection_name,
+        )
+        self.__dict__.update(built.__dict__)
+        return self
+
     @classmethod
     def load(cls, settings: Settings, embeddings_path: Path | None = None) -> "LocalEmbeddingIndex":
         payload = read_json(embeddings_path or settings.paths.embeddings_json)
@@ -139,6 +155,8 @@ class LocalEmbeddingIndex:
         )
 
     def search(self, query: str, top_k: int | None = None) -> list[SearchResult]:
+        if self.collection is None:
+            raise RuntimeError("Collection is not built. Call build_from_clean() first.")
         query_embedding = self.embedding_model.embed_query(query)
         results = self.collection.query(
             query_embeddings=[query_embedding],
@@ -164,6 +182,9 @@ class LocalEmbeddingIndex:
                 )
             )
         return scored
+
+    def semantic_search(self, query: str, top_k: int | None = None) -> list[SearchResult]:
+        return self.search(query, top_k)
 
     def lookup(self, value: str) -> dict[str, Any] | None:
         needle = value.strip().lower()

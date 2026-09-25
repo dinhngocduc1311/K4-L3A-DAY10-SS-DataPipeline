@@ -41,6 +41,11 @@ class Paths:
     repaired_answers: Path
     comparison_report: Path
 
+    @property
+    def test_set_json(self) -> Path:
+        """Compatibility name used by the phase-3 checkpoint."""
+        return self.eval_testset
+
 
 @dataclass(frozen=True)
 class Settings:
@@ -141,6 +146,8 @@ def load_settings(project_dir: Path | None = None) -> Settings:
 
 def normalized_provider(settings: Settings) -> str:
     provider = settings.llm_provider.strip().lower().replace(" ", "").replace("-", "")
+    if provider == "google":
+        return "gemini"
     if provider == "anthorpic":
         return "anthropic"
     if provider == "customllm":
