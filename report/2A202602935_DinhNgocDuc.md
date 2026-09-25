@@ -22,7 +22,7 @@ Tôi chịu trách nhiệm độc quyền các file sau để không conflict v�
 
 | Nhiệm vụ | Kết quả | Bằng chứng |
 |---|---|---|
-| Cấu hình hệ thống | Centralized paths; OpenRouter/Gemini 3.5 Flash | src/core/config.py |
+| Cấu hình hệ thống | Centralized paths; OpenRouter/DeepSeek V4 Flash | src/core/config.py |
 | Crossref ingestion | DOI/date/JATS parsing; retry và offline fallback | data/raw |
 | Cleaning | 24 dòng unique; age_days; embedding text 5 phần | data/clean |
 | Vector index | MiniLM, Chroma idempotent, 24 docs/collection | data/chroma |
@@ -43,8 +43,7 @@ Tôi ưu tiên docs gốc: test set gồm 10 câu với summary, authors, date v
 
 - API Crossref có thể 429/mất mạng: tự động dùng snapshot và vẫn tạo đủ 24 raw records.
 - Chroma delete/create để lại thư mục rác: thay bằng upsert và stale-ID cleanup.
-- OpenRouter mặc định xin output quá lớn: đặt max_tokens=300 và reasoning_effort=minimal.
-- OpenRouter thiếu credit trong lần nghiệm thu: giữ fallback có judge_mode rõ ràng, không ghi số LLM giả.
+- Structured Judge đôi lúc hết trần output: đặt max_tokens=512, reasoning_effort=minimal và retry tối đa ba lần.
 
 ## 7. Hiểu luồng end-to-end
 

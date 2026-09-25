@@ -38,7 +38,7 @@ def corrupt_clean_dataframe(df: pd.DataFrame, output_log_path) -> pd.DataFrame:
     corrupted.loc[truncate_index, "title"] = corrupted.loc[truncate_index, "title"].str[:7].str.rstrip()
 
     stale_index = corrupted.index[:8]
-    stale_dates = pd.to_datetime(corrupted.loc[stale_index, "published"], utc=True) - pd.DateOffset(years=5)
+    stale_dates = pd.to_datetime(corrupted.loc[stale_index, "published"], utc=True) - pd.Timedelta(days=365)
     corrupted.loc[stale_index, "published"] = stale_dates.dt.strftime("%Y-%m-%d")
     if "age_days" in corrupted:
         today = pd.Timestamp.now(tz="UTC").normalize()
@@ -67,7 +67,7 @@ def corrupt_clean_dataframe(df: pd.DataFrame, output_log_path) -> pd.DataFrame:
         {"name": "blank_summary", "affected_rows": len(blank_ids), "paper_ids": blank_ids},
         {"name": "inject_text_noise", "affected_rows": len(noise_ids), "paper_ids": noise_ids},
         {"name": "truncate_title", "affected_rows": len(truncate_ids), "paper_ids": truncate_ids, "max_length": 7},
-        {"name": "stale_date", "affected_rows": len(stale_ids), "paper_ids": stale_ids, "years_shifted": 5},
+        {"name": "stale_date", "affected_rows": len(stale_ids), "paper_ids": stale_ids, "days_shifted": 365},
         {"name": "duplicate_rows", "affected_rows": len(duplicate_ids), "paper_ids": duplicate_ids},
     ]
     write_json(output_log_path, {"input_rows": len(df), "output_rows": len(corrupted), "scenarios": scenarios})

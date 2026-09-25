@@ -20,7 +20,7 @@
 | Mean Token F1 | 1.0000 |
 | LLM Judge Accuracy | 100.00% |
 | Mean LLM Judge Score | 5.00 / 5 |
-| Judge mode | `heuristic_fallback` |
+| Judge mode | `llm` |
 
 Ragas: Set RUN_RAGAS=1 to enable the slower Ragas pass.
 

@@ -31,7 +31,7 @@ Tôi chịu trách nhiệm độc quyền các file sau để không conflict v�
 
 Quality Gate dùng GX ephemeral context, kiểm tra row count, not-null, unique paper_id và summary tối thiểu 30 ký tự. Freshness tính tỷ lệ age_days lớn hơn 180 và fail nếu vượt 25%.
 
-Corruption giữ tổng số dòng ở 24 để so sánh công bằng: bỏ 5 bài mới nhất rồi nhân đôi 5 dòng, đồng thời blank summary, chèn noise, cắt title tối đa 7 ký tự và lùi ngày 5 năm. Repair không sửa dataframe lỗi mà chạy lại cleaning từ raw source, kiểm tra các cột trọng yếu khớp baseline rồi tạo collection riêng.
+Corruption giữ tổng số dòng ở 24 để so sánh công bằng: bỏ 5 bài mới nhất rồi nhân đôi 5 dòng, đồng thời blank summary, chèn noise, cắt title tối đa 7 ký tự và lùi ngày xuất bản 365 ngày. Repair không sửa dataframe lỗi mà chạy lại cleaning từ raw source, kiểm tra các cột trọng yếu khớp baseline rồi tạo collection riêng.
 
 ## 5. Quyết định kỹ thuật quan trọng
 

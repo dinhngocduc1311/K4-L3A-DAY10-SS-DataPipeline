@@ -9,7 +9,7 @@
 | Retrieval Hit Rate | 100.00% | 20.00% | 100.00% |
 | Mean Token F1 | 1.0000 | 0.7329 | 1.0000 |
 | Judge Accuracy | 100.00% | 80.00% | 100.00% |
-| Mean Judge Score | 5.00 / 5 | 3.60 / 5 | 5.00 / 5 |
+| Mean Judge Score | 5.00 / 5 | 3.80 / 5 | 5.00 / 5 |
 
 ## Measured impact and recovery
 

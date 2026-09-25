@@ -8,8 +8,8 @@
 
 | STT | Họ và tên | MSSV | Email | Vai trò |
 |---:|---|---|---|---|
-| 1 | Đinh Ngọc Đức | 2A202602935 | Chưa cung cấp | Nhóm trưởng; Data Foundation, Vector Index & Baseline |
-| 2 | Nguyễn Việt Thành | 2A202602924 | Chưa cung cấp | QA Agent, Observability, Corruption & Repair |
+| 1 | Đinh Ngọc Đức | 2A202602935 | dinhngocduc1311@gmail.com | Nhóm trưởng; Data Foundation, Vector Index & Baseline |
+| 2 | Nguyễn Việt Thành | 2A202602924 | nnvvtt0501@gmail.com | QA Agent, Observability, Corruption & Repair |
 
 ## Quy tắc chống conflict
 
@@ -44,7 +44,7 @@ Hai thành viên chỉ sửa và commit các file thuộc phạm vi của mình.
 
 **Deliverables:**
 
-- Multi-provider QA Agent và router OpenRouter/Gemini.
+- Multi-provider QA Agent và router OpenRouter/DeepSeek.
 - Quality Gate GX 1.x, Freshness SLA và báo cáo Markdown.
 - Sáu kịch bản corruption, nhật ký lỗi và đo suy giảm.
 - Repair từ raw source, kiểm tra khớp baseline và báo cáo ba trạng thái.

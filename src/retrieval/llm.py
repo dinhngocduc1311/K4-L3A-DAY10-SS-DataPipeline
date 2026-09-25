@@ -35,7 +35,7 @@ def build_llm(settings: Settings, temperature: float = 0.0):
             model=settings.model_name,
             api_key=settings.openrouter_api_key,
             base_url=settings.openrouter_base_url,
-            max_tokens=300,
+            max_tokens=512,
             reasoning_effort="minimal",
             temperature=temperature,
         )

@@ -12,16 +12,16 @@
       "Information Retrieval"
     ],
     "primary_category":"Artificial Intelligence",
-    "published":"2021-05-20",
+    "published":"2025-05-20",
     "updated":"2026-05-20",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671801",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671801",
     "comment":"Crossref record 10.1145\/3637528.3671801",
-    "age_days":1954,
+    "age_days":493,
     "authors_joined":"Minh Nguyen, Hoang Le",
     "categories_joined":"Artificial Intelligence, Information Retrieval",
     "summary_chars":0,
-    "text_for_embedding":"Title: Agentic\nAuthors: Minh Nguyen, Hoang Le\nPublished: 2021-05-20\nCategories: Artificial Intelligence, Information Retrieval\nSummary: "
+    "text_for_embedding":"Title: Agentic\nAuthors: Minh Nguyen, Hoang Le\nPublished: 2025-05-20\nCategories: Artificial Intelligence, Information Retrieval\nSummary: "
   },
   {
     "paper_id":"10.1145\/3637528.3671803",
@@ -36,16 +36,16 @@
       "Information Systems"
     ],
     "primary_category":"Databases",
-    "published":"2021-04-18",
+    "published":"2025-04-18",
     "updated":"2026-04-18",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671803",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671803",
     "comment":"Crossref record 10.1145\/3637528.3671803",
-    "age_days":1986,
+    "age_days":525,
     "authors_joined":"Duc Vu, Thao Dang",
     "categories_joined":"Databases, Information Systems",
     "summary_chars":0,
-    "text_for_embedding":"Title: Mitigat\nAuthors: Duc Vu, Thao Dang\nPublished: 2021-04-18\nCategories: Databases, Information Systems\nSummary: "
+    "text_for_embedding":"Title: Mitigat\nAuthors: Duc Vu, Thao Dang\nPublished: 2025-04-18\nCategories: Databases, Information Systems\nSummary: "
   },
   {
     "paper_id":"10.1145\/3637528.3671805",
@@ -60,16 +60,16 @@
       "Evaluation Methodology"
     ],
     "primary_category":"Natural Language Processing",
-    "published":"2021-03-28",
+    "published":"2025-03-28",
     "updated":"2026-03-28",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671805",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671805",
     "comment":"Crossref record 10.1145\/3637528.3671805",
-    "age_days":2007,
+    "age_days":546,
     "authors_joined":"Tuan Phan, Mai Bui",
     "categories_joined":"Natural Language Processing, Evaluation Methodology",
     "summary_chars":0,
-    "text_for_embedding":"Title: Evaluat\nAuthors: Tuan Phan, Mai Bui\nPublished: 2021-03-28\nCategories: Natural Language Processing, Evaluation Methodology\nSummary: "
+    "text_for_embedding":"Title: Evaluat\nAuthors: Tuan Phan, Mai Bui\nPublished: 2025-03-28\nCategories: Natural Language Processing, Evaluation Methodology\nSummary: "
   },
   {
     "paper_id":"10.1145\/3637528.3671806",
@@ -84,16 +84,16 @@
       "Information Systems"
     ],
     "primary_category":"Databases",
-    "published":"2021-05-02",
+    "published":"2025-05-02",
     "updated":"2026-05-02",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671806",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671806",
     "comment":"Crossref record 10.1145\/3637528.3671806",
-    "age_days":1972,
+    "age_days":511,
     "authors_joined":"Huy Dinh, Trang Vo",
     "categories_joined":"Databases, Information Systems",
     "summary_chars":486,
-    "text_for_embedding":"Title: Semantic Layer Integration for Agentic Text-to-SQL Pipelines\nAuthors: Huy Dinh, Trang Vo\nPublished: 2021-05-02\nCategories: Databases, Information Systems\nSummary: Connecting LLMs directly to raw warehouse tables often results in schema misunderstandings. A governed semantic layer standardizes business metric definitions, dramatically boosting SQL generation accuracy. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
+    "text_for_embedding":"Title: Semantic Layer Integration for Agentic Text-to-SQL Pipelines\nAuthors: Huy Dinh, Trang Vo\nPublished: 2025-05-02\nCategories: Databases, Information Systems\nSummary: Connecting LLMs directly to raw warehouse tables often results in schema misunderstandings. A governed semantic layer standardizes business metric definitions, dramatically boosting SQL generation accuracy. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
   },
   {
     "paper_id":"10.1145\/3637528.3671809",
@@ -108,16 +108,16 @@
       "Natural Language Processing"
     ],
     "primary_category":"Information Retrieval",
-    "published":"2021-04-30",
+    "published":"2025-04-30",
     "updated":"2026-04-30",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671809",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671809",
     "comment":"Crossref record 10.1145\/3637528.3671809",
-    "age_days":1974,
+    "age_days":513,
     "authors_joined":"Long Trinh, Ha Chu",
     "categories_joined":"Information Retrieval, Natural Language Processing",
     "summary_chars":477,
-    "text_for_embedding":"Title: Chunking Strategies for Technical Documentation Retrieval\nAuthors: Long Trinh, Ha Chu\nPublished: 2021-04-30\nCategories: Information Retrieval, Natural Language Processing\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
+    "text_for_embedding":"Title: Chunking Strategies for Technical Documentation Retrieval\nAuthors: Long Trinh, Ha Chu\nPublished: 2025-04-30\nCategories: Information Retrieval, Natural Language Processing\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
   },
   {
     "paper_id":"10.1145\/3637528.3671810",
@@ -132,16 +132,16 @@
       "DevOps"
     ],
     "primary_category":"Data Quality",
-    "published":"2021-06-08",
+    "published":"2025-06-08",
     "updated":"2026-06-08",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671810",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671810",
     "comment":"Crossref record 10.1145\/3637528.3671810",
-    "age_days":1935,
+    "age_days":474,
     "authors_joined":"Son Nguyen, Thuy Doan",
     "categories_joined":"Data Quality, DevOps",
     "summary_chars":483,
-    "text_for_embedding":"Title: Automated Data Quality Profiling with Great Expectations in CI\/CD\nAuthors: Son Nguyen, Thuy Doan\nPublished: 2021-06-08\nCategories: Data Quality, DevOps\nSummary: Embedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
+    "text_for_embedding":"Title: Automated Data Quality Profiling with Great Expectations in CI\/CD\nAuthors: Son Nguyen, Thuy Doan\nPublished: 2025-06-08\nCategories: Data Quality, DevOps\nSummary: Embedding quality checks directly into data pipelines enables fail-closed governance. We show how Great Expectations suites catch schema drifts and null fields before documents reach the embedding model. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
   },
   {
     "paper_id":"10.1145\/3637528.3671811",
@@ -156,16 +156,16 @@
       "Algorithms"
     ],
     "primary_category":"Information Retrieval",
-    "published":"2021-05-14",
+    "published":"2025-05-14",
     "updated":"2026-05-14",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671811",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671811",
     "comment":"Crossref record 10.1145\/3637528.3671811",
-    "age_days":1960,
+    "age_days":499,
     "authors_joined":"Dat Tran, Lan Pham",
     "categories_joined":"Information Retrieval, Algorithms",
     "summary_chars":479,
-    "text_for_embedding":"Title: Hybrid Search Architectures: Combining BM25 with Dense Representations\nAuthors: Dat Tran, Lan Pham\nPublished: 2021-05-14\nCategories: Information Retrieval, Algorithms\nSummary: Dense vector search excels at conceptual similarity but struggles with exact acronyms and serial numbers. Reciprocal Rank Fusion of sparse lexical scores and dense embeddings achieves optimal recall. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
+    "text_for_embedding":"Title: Hybrid Search Architectures: Combining BM25 with Dense Representations\nAuthors: Dat Tran, Lan Pham\nPublished: 2025-05-14\nCategories: Information Retrieval, Algorithms\nSummary: Dense vector search excels at conceptual similarity but struggles with exact acronyms and serial numbers. Reciprocal Rank Fusion of sparse lexical scores and dense embeddings achieves optimal recall. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
   },
   {
     "paper_id":"10.1145\/3637528.3671813",
@@ -180,16 +180,16 @@
       "Information Retrieval"
     ],
     "primary_category":"Artificial Intelligence",
-    "published":"2021-06-01",
+    "published":"2025-06-01",
     "updated":"2026-06-01",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671813",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671813",
     "comment":"Crossref record 10.1145\/3637528.3671813",
-    "age_days":1942,
+    "age_days":481,
     "authors_joined":"Minh Nguyen, Hoang Le",
     "categories_joined":"Artificial Intelligence, Information Retrieval",
     "summary_chars":572,
-    "text_for_embedding":"Title: Advanced Perspectives on Agentic Retrieval-Augmented Generation for Knowledge-Intensive Tasks\nAuthors: Minh Nguyen, Hoang Le\nPublished: 2021-06-01\nCategories: Artificial Intelligence, Information Retrieval\nSummary: An extended empirical study on etrieval-Augmented Generation (RAG) significantly improves large language model accuracy by grounding responses in retrieved passages. We explore agentic multi-hop reasoning and routing across heterogeneous vector indices Further analysis on scaling parameters. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
+    "text_for_embedding":"Title: Advanced Perspectives on Agentic Retrieval-Augmented Generation for Knowledge-Intensive Tasks\nAuthors: Minh Nguyen, Hoang Le\nPublished: 2025-06-01\nCategories: Artificial Intelligence, Information Retrieval\nSummary: An extended empirical study on etrieval-Augmented Generation (RAG) significantly improves large language model accuracy by grounding responses in retrieved passages. We explore agentic multi-hop reasoning and routing across heterogeneous vector indices Further analysis on scaling parameters. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
   },
   {
     "paper_id":"10.1145\/3637528.3671814",
@@ -468,16 +468,16 @@
       "Information Retrieval"
     ],
     "primary_category":"Artificial Intelligence",
-    "published":"2021-05-20",
+    "published":"2025-05-20",
     "updated":"2026-05-20",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671801",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671801",
     "comment":"Crossref record 10.1145\/3637528.3671801",
-    "age_days":1954,
+    "age_days":493,
     "authors_joined":"Minh Nguyen, Hoang Le",
     "categories_joined":"Artificial Intelligence, Information Retrieval",
     "summary_chars":0,
-    "text_for_embedding":"Title: Agentic\nAuthors: Minh Nguyen, Hoang Le\nPublished: 2021-05-20\nCategories: Artificial Intelligence, Information Retrieval\nSummary: "
+    "text_for_embedding":"Title: Agentic\nAuthors: Minh Nguyen, Hoang Le\nPublished: 2025-05-20\nCategories: Artificial Intelligence, Information Retrieval\nSummary: "
   },
   {
     "paper_id":"10.1145\/3637528.3671803",
@@ -492,16 +492,16 @@
       "Information Systems"
     ],
     "primary_category":"Databases",
-    "published":"2021-04-18",
+    "published":"2025-04-18",
     "updated":"2026-04-18",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671803",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671803",
     "comment":"Crossref record 10.1145\/3637528.3671803",
-    "age_days":1986,
+    "age_days":525,
     "authors_joined":"Duc Vu, Thao Dang",
     "categories_joined":"Databases, Information Systems",
     "summary_chars":0,
-    "text_for_embedding":"Title: Mitigat\nAuthors: Duc Vu, Thao Dang\nPublished: 2021-04-18\nCategories: Databases, Information Systems\nSummary: "
+    "text_for_embedding":"Title: Mitigat\nAuthors: Duc Vu, Thao Dang\nPublished: 2025-04-18\nCategories: Databases, Information Systems\nSummary: "
   },
   {
     "paper_id":"10.1145\/3637528.3671805",
@@ -516,16 +516,16 @@
       "Evaluation Methodology"
     ],
     "primary_category":"Natural Language Processing",
-    "published":"2021-03-28",
+    "published":"2025-03-28",
     "updated":"2026-03-28",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671805",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671805",
     "comment":"Crossref record 10.1145\/3637528.3671805",
-    "age_days":2007,
+    "age_days":546,
     "authors_joined":"Tuan Phan, Mai Bui",
     "categories_joined":"Natural Language Processing, Evaluation Methodology",
     "summary_chars":0,
-    "text_for_embedding":"Title: Evaluat\nAuthors: Tuan Phan, Mai Bui\nPublished: 2021-03-28\nCategories: Natural Language Processing, Evaluation Methodology\nSummary: "
+    "text_for_embedding":"Title: Evaluat\nAuthors: Tuan Phan, Mai Bui\nPublished: 2025-03-28\nCategories: Natural Language Processing, Evaluation Methodology\nSummary: "
   },
   {
     "paper_id":"10.1145\/3637528.3671806",
@@ -540,16 +540,16 @@
       "Information Systems"
     ],
     "primary_category":"Databases",
-    "published":"2021-05-02",
+    "published":"2025-05-02",
     "updated":"2026-05-02",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671806",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671806",
     "comment":"Crossref record 10.1145\/3637528.3671806",
-    "age_days":1972,
+    "age_days":511,
     "authors_joined":"Huy Dinh, Trang Vo",
     "categories_joined":"Databases, Information Systems",
     "summary_chars":486,
-    "text_for_embedding":"Title: Semantic Layer Integration for Agentic Text-to-SQL Pipelines\nAuthors: Huy Dinh, Trang Vo\nPublished: 2021-05-02\nCategories: Databases, Information Systems\nSummary: Connecting LLMs directly to raw warehouse tables often results in schema misunderstandings. A governed semantic layer standardizes business metric definitions, dramatically boosting SQL generation accuracy. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
+    "text_for_embedding":"Title: Semantic Layer Integration for Agentic Text-to-SQL Pipelines\nAuthors: Huy Dinh, Trang Vo\nPublished: 2025-05-02\nCategories: Databases, Information Systems\nSummary: Connecting LLMs directly to raw warehouse tables often results in schema misunderstandings. A governed semantic layer standardizes business metric definitions, dramatically boosting SQL generation accuracy. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
   },
   {
     "paper_id":"10.1145\/3637528.3671809",
@@ -564,15 +564,15 @@
       "Natural Language Processing"
     ],
     "primary_category":"Information Retrieval",
-    "published":"2021-04-30",
+    "published":"2025-04-30",
     "updated":"2026-04-30",
     "abs_url":"https:\/\/doi.org\/10.1145\/3637528.3671809",
     "pdf_url":"https:\/\/doi.org\/10.1145\/3637528.3671809",
     "comment":"Crossref record 10.1145\/3637528.3671809",
-    "age_days":1974,
+    "age_days":513,
     "authors_joined":"Long Trinh, Ha Chu",
     "categories_joined":"Information Retrieval, Natural Language Processing",
     "summary_chars":477,
-    "text_for_embedding":"Title: Chunking Strategies for Technical Documentation Retrieval\nAuthors: Long Trinh, Ha Chu\nPublished: 2021-04-30\nCategories: Information Retrieval, Natural Language Processing\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
+    "text_for_embedding":"Title: Chunking Strategies for Technical Documentation Retrieval\nAuthors: Long Trinh, Ha Chu\nPublished: 2025-04-30\nCategories: Information Retrieval, Natural Language Processing\nSummary: Hierarchical and semantic boundary chunking preserves code block contexts and markdown headings. Our benchmark demonstrates superior top-1 recall compared to fixed character length sliding windows. zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!! zxqv_9f3a !!!"
   }
 ]

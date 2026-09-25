@@ -14,7 +14,7 @@ Phân công chi tiết và danh sách file không trùng nhau được ghi tại
 
 ## 2. Tóm tắt kết quả
 
-Nhóm đã hoàn thiện pipeline dữ liệu bài báo Crossref theo hai luồng baseline và corruption/repair. Luồng baseline bảo toàn raw response, chuẩn hóa 24 bản ghi, loại JATS XML, tính age_days, tạo text_for_embedding, chạy Quality Gate Great Expectations 1.x, nạp MiniLM embeddings vào ChromaDB và đánh giá bằng bộ 10 câu hỏi cố định. Luồng thử thách tiêm đủ sáu dạng lỗi, khiến Quality Gate và Freshness SLA cùng thất bại, Retrieval Hit Rate giảm từ 100% xuống 20% và Mean Token F1 giảm từ 1.000 xuống 0.733. Repair không vá dữ liệu lỗi tại chỗ mà tái tạo từ raw source, sau đó xác minh các cột trọng yếu khớp baseline; cả hai chỉ số phục hồi hoàn toàn. Ba collection Chroma tách biệt và cơ chế upsert/delete stale IDs giúp chạy lại không sinh collection rác. OpenRouter đã được cấu hình với Gemini 3.5 Flash, nhưng tài khoản không đủ credit cho toàn bộ LLM Judge; lần nghiệm thu cuối dùng mock và ghi rõ judge_mode=heuristic_fallback để không giả mạo kết quả.
+Nhóm đã hoàn thiện pipeline dữ liệu bài báo Crossref theo hai luồng baseline và corruption/repair. Luồng baseline bảo toàn raw response, chuẩn hóa 24 bản ghi, loại JATS XML, tính age_days, tạo text_for_embedding, chạy Quality Gate Great Expectations 1.x, nạp MiniLM embeddings vào ChromaDB và đánh giá bằng bộ 10 câu hỏi cố định. Luồng thử thách tiêm đủ sáu dạng lỗi, khiến Quality Gate và Freshness SLA cùng thất bại, Retrieval Hit Rate giảm từ 100% xuống 20% và Mean Token F1 giảm từ 1.000 xuống 0.733. Repair không vá dữ liệu lỗi tại chỗ mà tái tạo từ raw source, sau đó xác minh các cột trọng yếu khớp baseline; cả hai chỉ số phục hồi hoàn toàn. Ba collection Chroma tách biệt và cơ chế upsert/delete stale IDs giúp chạy lại không sinh collection rác. Cả 30 lượt đánh giá của ba trạng thái dùng DeepSeek V4 Flash qua OpenRouter; không có mẫu fallback.
 
 ## 3. Kiến trúc và trách nhiệm
 
@@ -35,8 +35,8 @@ Crossref API hoặc snapshot offline → raw records → cleaning → GX/Freshne
 |---|---|
 | Python | 3.12.9 |
 | LLM provider mặc định | openrouter |
-| LLM model | google/gemini-3.5-flash |
-| Validation mode của artifacts hiện tại | mock / heuristic_fallback do thiếu OpenRouter credit |
+| LLM model | deepseek/deepseek-v4-flash-0731 |
+| Validation mode của artifacts hiện tại | LLM Judge thật qua OpenRouter |
 | Embedding model | sentence-transformers/all-MiniLM-L6-v2 |
 | Crossref records | 24 |
 | Retrieval top_k | 4 |
@@ -51,7 +51,7 @@ Lệnh chạy:
     python script/run_phase1.py
     python script/run_corruption_flow.py
 
-Hai lệnh đã chạy exit code 0 trong lần nghiệm thu bằng mock. Khi OpenRouter có đủ credit, chạy lại hai lệnh không đặt LLM_PROVIDER=mock để cập nhật Judge thật.
+Hai lệnh đã chạy exit code 0 với DeepSeek LLM Judge thật.
 
 ## 5. Data contract và cleaning
 
@@ -90,7 +90,7 @@ GX chạy bằng ephemeral context và sáu validation instance thuộc bốn ex
 | Blank summary | 3 | Thiếu nội dung |
 | Inject text noise | 5 | Summary và embedding bị nhiễu |
 | Truncate title | 3 | Tiêu đề còn tối đa 7 ký tự |
-| Stale date | 8 | Ngày bị lùi 5 năm |
+| Stale date | 8 | Ngày bị lùi 365 ngày |
 | Duplicate rows | 5 | Trùng paper_id |
 
 Repair đọc lại data/raw/crossref_records.json, chạy lại cleaning, kiểm tra paper_id/title/summary/published/text_for_embedding khớp baseline, rồi build collection papers-repaired. Không có thao tác sửa tay artifact.
@@ -102,8 +102,8 @@ Repair đọc lại data/raw/crossref_records.json, chạy lại cleaning, kiể
 | Retrieval Hit Rate | 100.00% | 20.00% | 100.00% |
 | Mean Token F1 | 1.0000 | 0.7329 | 1.0000 |
 | Judge Accuracy | 100.00% | 80.00% | 100.00% |
-| Mean Judge Score | 5.00/5 | 3.60/5 | 5.00/5 |
-| Judge mode | heuristic_fallback | heuristic_fallback | heuristic_fallback |
+| Mean Judge Score | 5.00/5 | 3.80/5 | 5.00/5 |
+| Judge mode | llm | llm | llm |
 | Quality Gate | PASS | FAIL | PASS |
 | Freshness | PASS | FAIL | PASS |
 
@@ -116,8 +116,7 @@ Kết luận nhân quả:
 ## 10. Vấn đề tích hợp và giới hạn
 
 - Chroma ban đầu xóa/tạo lại collection và để lại segment mồ côi. Nhóm chuyển sang get-or-create, upsert và chỉ xóa stale IDs; số segment giữ ổn định ở ba collection.
-- Gemini 3.5 Flash mặc định dành nhiều token cho reasoning. Client đã đặt reasoning_effort=minimal và max_tokens=300.
-- OpenRouter key hợp lệ nhưng credit hiện không đủ cho 30 lượt Judge của hai flow. Artifacts dùng fallback có nhãn; cần nạp credit và chạy lại nếu yêu cầu Judge thật.
+- DeepSeek đôi lúc không hoàn tất structured output ở trần 300 tokens. Client dùng reasoning_effort=minimal, max_tokens=512 và tối đa ba lần thử; toàn bộ 30 kết quả cuối đều do LLM chấm.
 - Ragas là tùy chọn và đang tắt; Hit Rate, Token F1 và Judge vẫn được xuất đầy đủ.
 
 ## 11. Artifact checklist
@@ -136,5 +135,4 @@ Kết luận nhân quả:
 - Mỗi thành viên tự commit đúng tập file được phân công.
 - Merge/push toàn bộ lên nhánh main và kiểm tra cả hai thành viên trong Insights → Contributors.
 - Bổ sung email vào docs/TEAM.md nếu giảng viên yêu cầu.
-- Nạp OpenRouter credit và chạy lại nếu muốn judge_mode=llm.
 - Mỗi thành viên tự nộp link repository lên VLearn.
